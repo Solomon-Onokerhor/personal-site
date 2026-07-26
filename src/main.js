@@ -19,6 +19,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Modern Micro-Spotlight Cursor Animation
+  const cursorDot = document.getElementById('cursor-dot');
+  const cursorGlow = document.getElementById('cursor-glow');
+
+  if (cursorDot && cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+    let mouseX = -200, mouseY = -200;
+    let glowX = -200, glowY = -200;
+    let isVisible = false;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isVisible) {
+        isVisible = true;
+        cursorDot.style.opacity = '1';
+        cursorGlow.style.opacity = '1';
+        glowX = mouseX;
+        glowY = mouseY;
+      }
+
+      // Fast 1:1 hardware-accelerated dot positioning
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+    });
+
+    // Smooth LERP (0.12) physics loop for trailing radial glow aura
+    function renderGlow() {
+      glowX += (mouseX - glowX) * 0.12;
+      glowY += (mouseY - glowY) * 0.12;
+
+      cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(renderGlow);
+    }
+    requestAnimationFrame(renderGlow);
+
+    // Interactive Hover Listeners
+    const hoverTargets = 'a, button, input, textarea, label, select, [role="button"], .blog-item, .project-card, .social-pill, .glass-panel';
+    
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverTargets)) {
+        document.body.classList.add('cursor-hover');
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverTargets)) {
+        document.body.classList.remove('cursor-hover');
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursorDot.style.opacity = '0';
+      cursorGlow.style.opacity = '0';
+      isVisible = false;
+    });
+  }
+
 
 
   // AI Chat Toggle & Close Handlers
