@@ -1493,9 +1493,36 @@ html, body {
     font-size: 1.15rem;
   }
 
-  /* Completely hide geo background shapes on mobile to ensure zero blob artifacts or side scroll */
+  /* Scale geometric background shapes on mobile so they stay visible at edges without overflowing screen */
   .geo-shape {
-    display: none !important;
+    display: block !important;
+    transform: scale(0.65);
+    opacity: 0.8;
+  }
+
+  .geo-circle-1 {
+    top: 15px;
+    left: -20px;
+  }
+
+  .geo-circle-2 {
+    top: 25%;
+    right: -20px;
+  }
+
+  .geo-circle-3 {
+    bottom: -15px;
+    right: 10%;
+  }
+
+  .geo-ring-1 {
+    top: 25px;
+    right: -15px;
+  }
+
+  .geo-ring-2 {
+    bottom: -15px;
+    left: -15px;
   }
 
   /* Work / Projects Mobile */
