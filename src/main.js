@@ -19,66 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Custom Interactive Magnetic Cursor Logic (Desktop Only)
-  const cursorDot = document.getElementById('cursor-dot');
-  const cursorRing = document.getElementById('cursor-ring');
-
-  if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
-    let mouseX = -100, mouseY = -100;
-    let ringX = -100, ringY = -100;
-    let isVisible = false;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      if (!isVisible) {
-        isVisible = true;
-        cursorDot.style.opacity = '1';
-        cursorRing.style.opacity = '1';
-        ringX = mouseX;
-        ringY = mouseY;
-      }
-
-      // Fast 1:1 hardware accelerated dot positioning
-      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-    });
-
-    // Smooth LERP animation loop for trailing ring
-    function renderCursor() {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-
-      cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(renderCursor);
-    }
-    requestAnimationFrame(renderCursor);
-
-    // Interactive Element Mouseover Detection
-    const hoverTargets = 'a, button, input, textarea, label, select, [role="button"], .blog-item, .project-card, .social-pill, .glass-panel';
-    
-    document.addEventListener('mouseover', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        document.body.classList.add('cursor-hover');
-      }
-    });
-
-    document.addEventListener('mouseout', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        document.body.classList.remove('cursor-hover');
-      }
-    });
-
-    window.addEventListener('mousedown', () => document.body.classList.add('cursor-active'));
-    window.addEventListener('mouseup', () => document.body.classList.remove('cursor-active'));
-
-    document.addEventListener('mouseleave', () => {
-      cursorDot.style.opacity = '0';
-      cursorRing.style.opacity = '0';
-      isVisible = false;
-    });
-  }
-
 
 
   // AI Chat Toggle & Close Handlers
