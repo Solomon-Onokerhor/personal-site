@@ -435,13 +435,13 @@
 
     <!-- AI Chat Widget -->
     <div class="ai-widget-container">
-      <button id="ai-toggle" class="ai-toggle-btn" popovertarget="ai-chat-window">
+      <button id="ai-toggle" class="ai-toggle-btn" aria-label="Open AI Assistant">
         <i data-lucide="sparkles"></i>
       </button>
-      <div id="ai-chat-window" class="ai-chat-window" popover="auto">
+      <div id="ai-chat-window" class="ai-chat-window">
         <div class="chat-header">
           <div class="chat-title"><i data-lucide="bot"></i> Assistant</div>
-          <button id="ai-close" popovertarget="ai-chat-window" popovertargetaction="hide"><i data-lucide="x"></i></button>
+          <button id="ai-close" aria-label="Close Assistant"><i data-lucide="x"></i></button>
         </div>
         <div class="chat-messages" id="chat-messages">
           <div class="message ai-message">

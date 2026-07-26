@@ -21,6 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+  // AI Chat Toggle & Close Handlers
+  const aiToggle = document.getElementById('ai-toggle');
+  const aiClose = document.getElementById('ai-close');
+  const aiChatWindow = document.getElementById('ai-chat-window');
+
+  if (aiToggle && aiChatWindow) {
+    aiToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      aiChatWindow.classList.toggle('active');
+    });
+  }
+
+  if (aiClose && aiChatWindow) {
+    aiClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      aiChatWindow.classList.remove('active');
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (aiChatWindow && aiChatWindow.classList.contains('active')) {
+      if (!aiChatWindow.contains(e.target) && e.target !== aiToggle && !aiToggle.contains(e.target)) {
+        aiChatWindow.classList.remove('active');
+      }
+    }
+  });
+
   // AI Chat Widget Logic
   const chatInput = document.getElementById('chat-input');
   const sendBtn = document.getElementById('send-msg');
