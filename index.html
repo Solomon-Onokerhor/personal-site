@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Solomon Onokerhor | Portfolio</title>
+  </head>
+  <body>
+    <nav class="glass-nav">
+      <div class="logo">SO.</div>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn-primary">Let's Talk</a>
+      </div>
+    </nav>
+    <main>
+      <section class="hero" id="home">
+        <!-- Glow orb for glassmorphism -->
+        <div class="glass-glow"></div>
+
+        <div class="hero-background-text">
+          <h1>SOLOMON<br>ONOKERHOR</h1>
+        </div>
+        
+        <div class="hero-image-container">
+          <img src="/hero.png" alt="Solomon Onokerhor" class="hero-image" />
+        </div>
+        
+        <div class="glass-card hero-content">
+          <p class="subtitle">AI Builder from<br>Ghana.</p>
+          <div class="hero-actions">
+            <a href="#work" class="btn-primary">View Projects</a>
+            <a href="#contact" class="btn-white">Let's Talk</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="logo-ticker">
+        <p>Building with next-gen AI</p>
+        <div class="ticker-track">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt="OpenAI" />
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/anthropic.svg" alt="Anthropic" />
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/meta.svg" alt="Meta" />
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt="Google" />
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/huggingface.svg" alt="Hugging Face" />
+        </div>
+      </section>
+
+      <section id="about" class="page-section">
+        <div class="section-container">
+          <div class="section-header">
+            <span class="section-tag">01. Identity</span>
+            <h2>The Journey</h2>
+          </div>
+
+          <div class="about-glass-wrapper">
+            <!-- Background Shapes (Edge Anchored) -->
+            <div class="geo-shape geo-circle-1"></div>
+            <div class="geo-shape geo-circle-2"></div>
+            <div class="geo-shape geo-ring-1"></div>
+            <div class="geo-shape geo-dot-1"></div>
+
+            <div class="about-content glass-panel">
+              <p class="lead-text">I am a young builder from Ghana documenting my journey of learning, building, and creating.</p>
+              <p>Currently in my first year studying Statistical Data Science at the University of Mines and Technology (UMaT), I am focused on the intersection of data, software, and artificial intelligence.</p>
+              <p>I don't claim to have decades of experience. I am simply someone with immense curiosity, a builder mindset, and the ambition to create practical systems that solve real business problems. I experiment, I build, and I share what I learn along the way.</p>
+              <div class="tech-stack">
+                <h3>Core Stack</h3>
+                <div class="stack-tags">
+                  <span>Next.js</span>
+                  <span>TypeScript</span>
+                  <span>Tailwind CSS</span>
+                  <span>Supabase</span>
+                  <span>n8n</span>
+                  <span>OpenAI / Gemini</span>
+                  <span>Python</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="page-section bg-alt">
+        <div class="section-container">
+          <div class="section-header">
+            <span class="section-tag">02. Work</span>
+            <h2>Featured Projects</h2>
+          </div>
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card glass-panel">
+              <div class="project-header">
+                <h3>LockedIn</h3>
+                <div class="project-links">
+                  <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+                  <a href="#" aria-label="External Link"><i data-lucide="external-link"></i></a>
+                </div>
+              </div>
+              <p class="project-desc">A productivity and academic platform built for UMaT students to access resources, stay focused, and improve learning.</p>
+              <div class="project-tech">
+                <span>Next.js</span>
+                <span>TypeScript</span>
+                <span>Tailwind CSS</span>
+                <span>Supabase</span>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card glass-panel">
+              <div class="project-header">
+                <h3>Business Automation</h3>
+                <div class="project-links">
+                  <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+                  <a href="#" aria-label="External Link"><i data-lucide="external-link"></i></a>
+                </div>
+              </div>
+              <p class="project-desc">A system that captures leads, automatically follows up, generates content, and automates workflows.</p>
+              <div class="project-tech">
+                <span>Next.js</span>
+                <span>Supabase</span>
+                <span>n8n</span>
+                <span>APIs</span>
+              </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card glass-panel placeholder-card">
+              <div class="placeholder-content">
+                <i data-lucide="flask-conical"></i>
+                <h3>Future Experiments</h3>
+                <p>Currently building in the lab...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" class="page-section blog-feature-section">
+        <div class="section-container">
+          <div class="section-header">
+            <span class="section-tag">03. Journal</span>
+            <h2>Public Building</h2>
+          </div>
+
+          <!-- Glassmorphism Container with Geometric Background Shapes -->
+          <div class="blog-glass-wrapper">
+            <!-- Background Shapes (Site Palette) -->
+            <div class="geo-shape geo-circle-1"></div>
+            <div class="geo-shape geo-circle-2"></div>
+            <div class="geo-shape geo-circle-3"></div>
+            <div class="geo-shape geo-ring-1"></div>
+            <div class="geo-shape geo-ring-2"></div>
+            <div class="geo-shape geo-dot-1"></div>
+            <div class="geo-shape geo-dot-2"></div>
+
+            <!-- Featured Blog Preview Card -->
+            <article class="featured-blog-card glass-panel">
+              <div class="blog-card-meta">
+                <span class="blog-badge">Featured Essay</span>
+                <span class="blog-cat">Journey / Building in Public</span>
+                <span class="blog-post-date">Oct 2026</span>
+              </div>
+
+              <h2 class="blog-preview-title">Building AI Systems From Ghana: My Journey as a Young AI Builder</h2>
+
+              <p class="blog-preview-teaser">
+                At 19 years old, I am a Statistical Data Science student at UMaT, Ghana, exploring artificial intelligence. But I don't want to just learn about AI — I want to build with it. Read my founding statement on building technology from Africa.
+              </p>
+
+              <div class="blog-preview-footer">
+                <button class="btn-primary read-essay-btn" id="open-blog-modal">
+                  <span>Read Full Essay</span>
+                  <i data-lucide="arrow-right"></i>
+                </button>
+                <span class="read-time"><i data-lucide="clock"></i> 4 min read</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Recent Journal List -->
+          <div class="blog-recent-list">
+            <h3>Recent Notes</h3>
+            <div class="blog-list">
+              <a href="#" class="blog-item glass-panel">
+                <span class="blog-date">Oct 24</span>
+                <div class="blog-info">
+                  <h4>I built an agent using n8n. Here's what I learned.</h4>
+                  <span class="blog-category">Building</span>
+                </div>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+              <a href="#" class="blog-item glass-panel">
+                <span class="blog-date">Sep 15</span>
+                <div class="blog-info">
+                  <h4>Building systems from Ghana.</h4>
+                  <span class="blog-category">Startup Journey</span>
+                </div>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Native Full-Screen Blog Reader Modal -->
+      <dialog id="blog-reader-modal" class="blog-modal-dialog">
+        <div class="blog-modal-content glass-panel">
+          <div class="blog-modal-header">
+            <span class="blog-badge">Featured Essay</span>
+            <button id="close-blog-modal" class="close-modal-btn"><i data-lucide="x"></i> Close</button>
+          </div>
+
+          <article class="full-blog-article">
+            <div class="blog-card-meta">
+              <span class="blog-cat">Journey / Building in Public</span>
+              <span class="blog-post-date">Oct 2026</span>
+            </div>
+
+            <h1 class="blog-post-title">Building AI Systems From Ghana: My Journey as a Young AI Builder</h1>
+
+            <div class="blog-post-body">
+              <section class="blog-block">
+                <h3>Introduction</h3>
+                <p>At 19 years old, I am still at the beginning of my journey.</p>
+                <p>I am a Statistical Data Science student at the University of Mines and Technology (UMaT), Ghana, exploring one of the most exciting technological shifts of our generation: <strong>artificial intelligence</strong>.</p>
+                <p>But I don't want to just learn about AI. <strong>I want to build with it.</strong></p>
+                <p>This website is a record of that journey — the systems I build, the lessons I learn, the mistakes I make, and the ideas I explore along the way.</p>
+              </section>
+
+              <section class="blog-block">
+                <h3>Why AI?</h3>
+                <p>Technology has always fascinated me because of its ability to multiply human ability. A single person with the right tools can now create things that previously required entire teams.</p>
+                <p>Artificial intelligence has accelerated this even further. Today, one person can build:</p>
+                <ul class="blog-list-items">
+                  <li>Intelligent assistants</li>
+                  <li>Automated workflows</li>
+                  <li>Software products</li>
+                  <li>Data-driven systems</li>
+                  <li>Tools that solve real business problems</li>
+                </ul>
+                <p>The opportunity is not just in creating AI models. The real opportunity is in understanding problems and using AI to create useful solutions. That is the space I want to operate in.</p>
+              </section>
+
+              <section class="blog-block">
+                <h3>From Learning Tools to Building Systems</h3>
+                <p>When I first started exploring AI, like many people, I was fascinated by the tools — ChatGPT, AI image generators, automation platforms, and AI coding assistants.</p>
+                <p>But I realized something important: <strong>Knowing AI tools is not the same as being an AI builder.</strong></p>
+                <p>A builder understands:</p>
+                <ul class="blog-list-items">
+                  <li>What problem needs solving?</li>
+                  <li>What process can be improved?</li>
+                  <li>Where can AI create real value?</li>
+                  <li>How do different technologies connect together?</li>
+                </ul>
+                <p>That mindset shift changed how I approach technology. Instead of asking <em>"What can this AI tool do?"</em>, I started asking <em>"What problem can I solve with this?"</em></p>
+              </section>
+
+              <section class="blog-block">
+                <h3>What I Build</h3>
+                <p>My focus is on creating practical AI systems. Some areas I explore include:</p>
+                <div class="build-grid">
+                  <div class="build-item">
+                    <strong>AI Agents</strong>
+                    <p>Systems that can understand information, make decisions, and complete tasks with minimal human input.</p>
+                  </div>
+                  <div class="build-item">
+                    <strong>Automation Workflows</strong>
+                    <p>Connecting different tools and services to remove repetitive work.</p>
+                  </div>
+                  <div class="build-item">
+                    <strong>Software Products</strong>
+                    <p>Building applications that solve specific problems for users.</p>
+                  </div>
+                  <div class="build-item">
+                    <strong>Data-Driven Solutions</strong>
+                    <p>Using data and AI to help businesses make better decisions.</p>
+                  </div>
+                </div>
+                <div class="stack-summary">
+                  <span>Core Tech Stack:</span> Next.js • TypeScript • Supabase • n8n • AI APIs • Modern AI Coding Assistants
+                </div>
+              </section>
+
+              <section class="blog-block">
+                <h3>Building From Ghana</h3>
+                <p>One thing that makes my journey unique is where I am building from: <strong>Ghana</strong>.</p>
+                <p>Africa is often described as a place that consumes technology, but I believe the next generation of builders will change that narrative.</p>
+                <p>There are countless problems across businesses, education, healthcare, agriculture, and finance that can be improved through technology. The future will not only be built in Silicon Valley — it will also be built by young people solving problems in places like Ghana.</p>
+              </section>
+
+              <section class="blog-block">
+                <h3>Learning in Public & Long-Term Vision</h3>
+                <p>I believe the best way to improve is to build, share, and learn openly. Through this platform, I will document my AI projects, tech experiments, startup ideas, and insights from working with businesses.</p>
+                <p>My goal is simple: <strong>To become an AI engineer and entrepreneur who builds technology that creates real impact.</strong></p>
+                <p>The projects will get better. The systems will become more complex. The lessons will become deeper. But the mission stays the same: <em>Build useful AI systems that solve real problems.</em></p>
+              </section>
+
+              <div class="blog-post-author">
+                <div class="author-info">
+                  <strong>Solomon Onokerhor</strong>
+                  <span>AI Builder | Statistical Data Science Student | Building AI Systems from Ghana</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </dialog>
+
+      <section id="resume" class="page-section bg-alt">
+        <div class="section-container">
+          <div class="section-header">
+            <span class="section-tag">04. Resume</span>
+            <h2>Capabilities</h2>
+          </div>
+          <div class="resume-grid">
+            <div class="resume-col glass-panel">
+              <h3>Education</h3>
+              <div class="resume-item">
+                <h4>University of Mines and Technology</h4>
+                <p>Statistical Data Science</p>
+                <span class="resume-date">Present</span>
+              </div>
+            </div>
+            <div class="resume-col glass-panel">
+              <h3>Skills Matrix</h3>
+              <div class="skills-list">
+                <div class="skill-group">
+                  <strong>Automation & AI</strong>
+                  <p>Prompt Engineering, RAG, Workflow Automation, n8n</p>
+                </div>
+                <div class="skill-group">
+                  <strong>Development</strong>
+                  <p>Next.js, React, TypeScript, Supabase</p>
+                </div>
+                <div class="skill-group">
+                  <strong>Data Science</strong>
+                  <p>Python, Data Analysis, Statistics</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="resume-action">
+            <button class="btn-primary">
+              <i data-lucide="download"></i> Download PDF Resume
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="page-section contact-pro-section">
+        <div class="contact-glow-orb"></div>
+        <div class="section-container">
+          <div class="contact-pro-card glass-panel">
+            
+            <!-- Left Side: Statement & Info -->
+            <div class="contact-pro-left">
+              <div class="status-tag">
+                <span class="pulse-dot"></span> OPEN FOR PROJECTS
+              </div>
+
+              <h2 class="contact-pro-heading">
+                HAVE AN IDEA?<br>
+                <span class="gradient-text">LET'S TALK.</span>
+              </h2>
+
+              <p class="contact-pro-sub">
+                I build web applications, AI automation tools, and data systems. If you want to collaborate or build something together, drop me a message.
+              </p>
+
+              <div class="contact-direct-action">
+                <span class="action-label">EMAIL ME DIRECTLY</span>
+                <button id="copy-email-btn" class="copy-email-box" data-email="solomon.onokerhor@gmail.com">
+                  <span id="email-text">solomon.onokerhor@gmail.com</span>
+                  <i data-lucide="copy" id="copy-icon"></i>
+                </button>
+              </div>
+
+              <div class="contact-location-info">
+                <span><i data-lucide="map-pin"></i> Ghana (GMT)</span>
+              </div>
+            </div>
+
+            <!-- Right Side: Interactive Form -->
+            <div class="contact-pro-right">
+              <form class="contact-pro-form" id="main-contact-form">
+                <div class="form-header">
+                  <h3>Send a Message</h3>
+                  <p>Fill out the details below and I'll respond shortly.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="contact-name">Your Name</label>
+                  <input type="text" id="contact-name" placeholder="John Doe" required />
+                </div>
+
+                <div class="form-field">
+                  <label for="contact-email">Your Email</label>
+                  <input type="email" id="contact-email" placeholder="john@example.com" required />
+                </div>
+
+                <div class="form-field">
+                  <label for="contact-message">Project Overview</label>
+                  <textarea id="contact-message" placeholder="Briefly describe what you'd like to build..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary contact-submit-btn">
+                  <span>Send Message</span>
+                  <i data-lucide="send"></i>
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- Social Links Bar -->
+          <div class="contact-social-row">
+            <a href="mailto:solomon.onokerhor@gmail.com" class="social-pill"><i data-lucide="mail"></i> Email</a>
+            <a href="#" target="_blank" rel="noopener" class="social-pill"><i data-lucide="linkedin"></i> LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener" class="social-pill"><i data-lucide="github"></i> GitHub</a>
+            <a href="#" target="_blank" rel="noopener" class="social-pill"><i data-lucide="twitter"></i> Twitter</a>
+          </div>
+
+          <footer class="site-footer">
+            <p>© 2026 Solomon Onokerhor • Built with precision in Ghana</p>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <!-- AI Chat Widget -->
+    <div class="ai-widget-container">
+      <button id="ai-toggle" class="ai-toggle-btn" popovertarget="ai-chat-window">
+        <i data-lucide="sparkles"></i>
+      </button>
+      <div id="ai-chat-window" class="ai-chat-window" popover="auto">
+        <div class="chat-header">
+          <div class="chat-title"><i data-lucide="bot"></i> Assistant</div>
+          <button id="ai-close" popovertarget="ai-chat-window" popovertargetaction="hide"><i data-lucide="x"></i></button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="message ai-message">
+            Hi! Ask me about Solomon's projects, skills, or background!
+          </div>
+          <div class="chat-suggestions">
+            <button class="suggestion-btn">Who is Solomon?</button>
+            <button class="suggestion-btn">What projects has he built?</button>
+            <button class="suggestion-btn">What technologies does he use?</button>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" id="chat-input" placeholder="Ask anything..." />
+          <button id="send-msg"><i data-lucide="send"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

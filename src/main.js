@@ -1,0 +1,147 @@
+import './style.css';
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Lucide icons
+  lucide.createIcons();
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+
+
+  // AI Chat Widget Logic
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-msg');
+  const chatMessages = document.getElementById('chat-messages');
+  const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+
+  function addMessage(text, isUser = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message');
+    msgDiv.classList.add(isUser ? 'user-message' : 'ai-message');
+    msgDiv.textContent = text;
+    
+    // Insert before suggestions if they exist
+    const suggestions = document.querySelector('.chat-suggestions');
+    if (suggestions) {
+      chatMessages.insertBefore(msgDiv, suggestions);
+    } else {
+      chatMessages.appendChild(msgDiv);
+    }
+    
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function handleSend(text) {
+    if (!text.trim()) return;
+    
+    addMessage(text, true);
+    chatInput.value = '';
+
+    // Mock AI Response for frontend demo
+    setTimeout(() => {
+      let response = "I'm still being connected to my backend brain, but I can tell you Solomon is an incredible AI Builder from Ghana! Check out his Projects section.";
+      
+      if (text.toLowerCase().includes('who is')) {
+        response = "Solomon is a 19-year-old Statistical Data Science student at UMaT, Ghana. He's building a long-term personal brand around AI agents, automation workflows, and software products.";
+      } else if (text.toLowerCase().includes('projects')) {
+        response = "He's built LockedIn (a platform for UMaT students) and an AI Business Automation Platform using Next.js, Supabase, and n8n.";
+      } else if (text.toLowerCase().includes('tech')) {
+        response = "Solomon uses Next.js, React, TypeScript, Tailwind CSS, Supabase, n8n, and various AI APIs (Claude, Gemini, OpenAI).";
+      }
+
+      addMessage(response, false);
+    }, 600);
+  }
+
+  sendBtn?.addEventListener('click', () => handleSend(chatInput.value));
+  
+  chatInput?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleSend(chatInput.value);
+    }
+  });
+
+  suggestionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      handleSend(btn.textContent);
+    });
+  });
+
+  // Copy Email Clipboard Logic
+  const copyBtn = document.getElementById('copy-email-btn');
+  const emailText = document.getElementById('email-text');
+  
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const email = copyBtn.getAttribute('data-email');
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = emailText.textContent;
+        emailText.textContent = 'Copied to clipboard';
+        copyBtn.style.borderColor = '#111111';
+        
+        setTimeout(() => {
+          emailText.textContent = originalText;
+          copyBtn.style.borderColor = '';
+        }, 2000);
+      });
+    });
+  }
+
+  // Contact Form Feedback
+  const mainContactForm = document.getElementById('main-contact-form');
+  if (mainContactForm) {
+    mainContactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = mainContactForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Message sent</span>';
+        submitBtn.style.backgroundColor = '#111111';
+        submitBtn.style.color = '#ffffff';
+        mainContactForm.reset();
+
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Send Message</span><i data-lucide="send"></i>';
+          submitBtn.style.backgroundColor = '';
+          submitBtn.style.color = '';
+          lucide.createIcons();
+        }, 3000);
+      }
+    });
+  }
+
+  // Blog Reader Modal Logic
+  const openModalBtn = document.getElementById('open-blog-modal');
+  const closeModalBtn = document.getElementById('close-blog-modal');
+  const blogModal = document.getElementById('blog-reader-modal');
+
+  if (openModalBtn && blogModal) {
+    openModalBtn.addEventListener('click', () => {
+      blogModal.showModal();
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  if (closeModalBtn && blogModal) {
+    closeModalBtn.addEventListener('click', () => {
+      blogModal.close();
+      document.body.style.overflow = '';
+    });
+  }
+
+  blogModal?.addEventListener('click', (e) => {
+    if (e.target === blogModal) {
+      blogModal.close();
+      document.body.style.overflow = '';
+    }
+  });
+});
