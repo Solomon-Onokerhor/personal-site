@@ -36,7 +36,7 @@ body {
   line-height: 1.6;
 }
 
-/* Modern Luxury Micro-Spotlight Cursor (Desktop Only) */
+/* Contextual Glass Action Lens (Desktop Fine Pointer Only) */
 @media (pointer: fine) {
   body {
     cursor: none;
@@ -46,52 +46,74 @@ body {
     cursor: none !important;
   }
 
-  .custom-cursor-dot {
+  .cursor-lens {
     position: fixed;
     top: 0;
     left: 0;
-    width: 6px;
-    height: 6px;
-    background-color: #111111;
+    width: 12px;
+    height: 12px;
+    background: #111111;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     pointer-events: none;
     z-index: 999999;
-    will-change: transform;
-    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+    will-change: transform, width, height, border-radius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.25s ease, 
+                border-color 0.25s ease,
+                opacity 0.2s ease;
   }
 
-  .custom-cursor-glow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 999998;
-    will-change: transform;
-    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  .cursor-label {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease 0.05s, transform 0.2s ease 0.05s;
+    white-space: nowrap;
+    user-select: none;
   }
 
-  /* Hover State on Interactive Elements */
-  body.cursor-hover .custom-cursor-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #111111;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  /* Hover States with Contextual Action Badging */
+  body.cursor-hover-view .cursor-lens,
+  body.cursor-hover-read .cursor-lens,
+  body.cursor-hover-copy .cursor-lens,
+  body.cursor-hover-talk .cursor-lens,
+  body.cursor-hover-generic .cursor-lens {
+    width: 76px;
+    height: 32px;
+    border-radius: 20px;
+    background: #111111;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 
-  body.cursor-hover .custom-cursor-glow {
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0) 75%);
+  body.cursor-hover-view .cursor-label,
+  body.cursor-hover-read .cursor-label,
+  body.cursor-hover-copy .cursor-label,
+  body.cursor-hover-talk .cursor-label,
+  body.cursor-hover-generic .cursor-label {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  body.cursor-active .cursor-lens {
+    transform: translate3d(-50%, -50%, 0) scale(0.88) !important;
   }
 }
 
 @media (pointer: coarse) {
-  .custom-cursor-dot,
-  .custom-cursor-glow {
+  .cursor-lens {
     display: none !important;
   }
 }

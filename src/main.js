@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Modern Micro-Spotlight Cursor Animation
-  const cursorDot = document.getElementById('cursor-dot');
-  const cursorGlow = document.getElementById('cursor-glow');
+  // Contextual Glass Action Lens Cursor Logic (Desktop Only)
+  const cursorLens = document.getElementById('cursor-lens');
+  const cursorLabel = document.getElementById('cursor-label');
 
-  if (cursorDot && cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+  if (cursorLens && cursorLabel && window.matchMedia('(pointer: fine)').matches) {
     let mouseX = -200, mouseY = -200;
-    let glowX = -200, glowY = -200;
+    let lensX = -200, lensY = -200;
     let isVisible = false;
 
     window.addEventListener('mousemove', (e) => {
@@ -34,45 +34,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!isVisible) {
         isVisible = true;
-        cursorDot.style.opacity = '1';
-        cursorGlow.style.opacity = '1';
-        glowX = mouseX;
-        glowY = mouseY;
+        cursorLens.style.opacity = '1';
+        lensX = mouseX;
+        lensY = mouseY;
       }
-
-      // Fast 1:1 hardware-accelerated dot positioning
-      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
     });
 
-    // Smooth LERP (0.12) physics loop for trailing radial glow aura
-    function renderGlow() {
-      glowX += (mouseX - glowX) * 0.12;
-      glowY += (mouseY - glowY) * 0.12;
+    // Smooth LERP (0.22) physics loop for fluid tracking
+    function animateLens() {
+      lensX += (mouseX - lensX) * 0.22;
+      lensY += (mouseY - lensY) * 0.22;
 
-      cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(renderGlow);
+      cursorLens.style.transform = `translate3d(${lensX}px, ${lensY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(animateLens);
     }
-    requestAnimationFrame(renderGlow);
+    requestAnimationFrame(animateLens);
 
-    // Interactive Hover Listeners
-    const hoverTargets = 'a, button, input, textarea, label, select, [role="button"], .blog-item, .project-card, .social-pill, .glass-panel';
-    
+    // Contextual Action Detection
+    const hoverClasses = ['cursor-hover-view', 'cursor-hover-read', 'cursor-hover-copy', 'cursor-hover-talk', 'cursor-hover-generic'];
+
+    function clearHoverClasses() {
+      document.body.classList.remove(...hoverClasses);
+    }
+
     document.addEventListener('mouseover', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        document.body.classList.add('cursor-hover');
+      const projectCard = e.target.closest('.project-card, a[href="#work"]');
+      const blogCard = e.target.closest('.featured-blog-card, .blog-item, #open-blog-modal');
+      const copyBtn = e.target.closest('#copy-email-btn, [data-email]');
+      const talkBtn = e.target.closest('a[href="#contact"], .contact-submit-btn');
+      const genericBtn = e.target.closest('a, button, input, textarea, .social-pill, .suggestion-btn');
+
+      if (projectCard) {
+        clearHoverClasses();
+        cursorLabel.textContent = 'VIEW →';
+        document.body.classList.add('cursor-hover-view');
+      } else if (blogCard) {
+        clearHoverClasses();
+        cursorLabel.textContent = 'READ 📖';
+        document.body.classList.add('cursor-hover-read');
+      } else if (copyBtn) {
+        clearHoverClasses();
+        cursorLabel.textContent = 'COPY 📋';
+        document.body.classList.add('cursor-hover-copy');
+      } else if (talkBtn) {
+        clearHoverClasses();
+        cursorLabel.textContent = 'TALK 💬';
+        document.body.classList.add('cursor-hover-talk');
+      } else if (genericBtn) {
+        clearHoverClasses();
+        cursorLabel.textContent = 'OPEN';
+        document.body.classList.add('cursor-hover-generic');
       }
     });
 
     document.addEventListener('mouseout', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        document.body.classList.remove('cursor-hover');
+      if (e.target.closest('a, button, input, textarea, .project-card, .featured-blog-card, .blog-item, .social-pill')) {
+        clearHoverClasses();
       }
     });
 
+    window.addEventListener('mousedown', () => document.body.classList.add('cursor-active'));
+    window.addEventListener('mouseup', () => document.body.classList.remove('cursor-active'));
+
     document.addEventListener('mouseleave', () => {
-      cursorDot.style.opacity = '0';
-      cursorGlow.style.opacity = '0';
+      cursorLens.style.opacity = '0';
       isVisible = false;
+      clearHoverClasses();
     });
   }
 
